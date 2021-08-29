@@ -1,17 +1,17 @@
 <template>
     <div>
-        <Navbar />
+        <!-- <Header /> -->
         <Footer />
     </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar/index'
+// import Header from '@/components/Header/index'
 import Footer from '@/components/Footer/index'
 
 export default {
     components: {
-        Navbar,
+        // Header,
         Footer
     }
 }
