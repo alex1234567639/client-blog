@@ -1,18 +1,15 @@
 <template>
-  <div id="app" class="header-wrapper">
-
-    <!-- navbar -->
+    <div class="header-wrapper">
+        <!-- navbar -->
         <div class="nav">
             <img class="icon" src="@/assets/images/icon.png" alt="">
             <span class="name">Yu-Gi-Oh 部落格</span>
         </div>
 
-        <router-view class="router" />
-
         <!-- 漢堡btn -->
         <img class="open-btn" src="@/assets/images/hamburger_open.png" alt="" @click="showMenu">
 
-    <!-- 側邊欄選單 -->
+        <!-- 側邊欄選單 -->
         <div class="menu" v-show="menuVisible">
             <div class="menu-box">
                 <div class="type">
@@ -28,14 +25,14 @@
                 
             </div>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
     data() {
         return {
-            menuVisible: false
+            menuVisible: true
         }
     },
     methods: {
@@ -50,8 +47,8 @@ export default {
 .header-wrapper {
     position: fixed;
     right: 0;
-    width: 100%;
-    // width: calc(100% - 10.93vw);
+    // width: 100%;
+    width: calc(100% - 10.93vw);
     height: 4vw;
     z-index: 40;
     background-color: #2B2B2B;
