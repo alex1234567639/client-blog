@@ -7,33 +7,28 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
 <style lang="scss" scoped>
 .footer-wrapper {
-    position: relative;
-    width: 100%;
-    height: 8vw;
-    background-color: #000000;
-    color: #ffffff;
-    .line {
-        position: absolute;
-        width: 90%;
-        height: 1px;
-        background-color: lightgray;
-        top: 4vw;
-        left: 5%;
-    }
-    .text {
-        position: absolute;
-        top: 4vw;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-        padding: 0 3vw;
-        text-align: center;
-        background-color: #000000;
-    }
-} 
+  @apply relative w-full bg-black text-white;
+  height: 8vw;
+  .line {
+    @apply absolute;
+    top: 4vw;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    background-color: lightgray;
+  }
+  .text {
+    @apply absolute text-center bg-black;
+    top: 4vw;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 0 3vw;
+  }
+}
 </style>

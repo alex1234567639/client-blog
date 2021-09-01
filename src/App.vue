@@ -21,7 +21,7 @@
         </div>
         <div class="type">
           <router-link class="type-item" to="/">系列介紹</router-link>
-        </div>  
+        </div>
         <span>
           <div class="subtype">
             <router-link class="subtype-item" to="/">主題牌組</router-link>
@@ -29,7 +29,7 @@
           <div class="subtype">
             <router-link class="subtype-item" to="/">外掛系列</router-link>
           </div>
-        </span>  
+        </span>
       </div>
     </div>
   </div>
@@ -60,87 +60,74 @@ export default {
 
 <style lang="scss" scoped>
 .is-open-ham {
-  width: calc(100% - 10.93vw) !important;
+  width: calc(100% - 14vw) !important;
 }
 .header-wrapper {
-  position: fixed;
+  @apply fixed w-full z-40;
   right: 0;
-  width: 100%;
-  height: 3.6vw;
-  z-index: 40;
+  height: 4vw;
   background-color: #2B2B2B;
 
   & .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.6vw;
-    color: #ffffff;
+    @apply flex justify-center items-center text-white;
+    height: 4vw;
     & .icon {
         width: 5.4vw;
         margin-right: 0.88vw;
     }
     & .name {
-        font-size: 1.08vw;
+        font-size: 1.2vw;
     }
   }
 
   & .ham-btn {
-    cursor: pointer;
-    position: absolute;
+    @apply absolute cursor-pointer;
     left: 1vw;
-    top: 1.08vw;
-    width: 1.8vw;
+    top: 1.2vw;
+    width: 2vw;
   }
 
   & .menu {
-    position: fixed;
+    @apply fixed z-50;
     left: 0;
     top: 0;
-    z-index: 50;
     & .menu-box {
-      display: flex;
-      flex-direction: column;
-      justify-items: start;
-      width: 10.93vw;
+      @apply flex flex-col justify-items-start text-white;
+      width: 14vw;
       height: 100vh;
       background-color: #1F2C5D;
-      color: #ffffff;
       overflow-y: auto;
       & .type {
+        @apply cursor-pointer;
         width: 80%;
         font-size: 1vw;
         border-bottom: 1px solid rgba(201,201,201,0.2);
-        margin-left: 10%;  
+        margin-left: 10%;
         transition-duration: 500ms;
-        cursor: pointer;
         &:hover {
           border-bottom: 1px solid #ffffff;
-        }     
+        }
         & .type-item {
-          display: block;
-          padding: 1.35vw 0 0.52vw 0; 
-          text-decoration: none;
-          color: #ffffff;
+          @apply block text-white no-underline;
+          padding: 1.35vw 0 0.52vw 0;
         }
       }
       & .subtype {
+        @apply cursor-pointer;
         width: 55%;
         font-size: 1vw;
         border-bottom: 1px solid rgba(201,201,201,0.2);
         margin-left: 30%;
         transition-duration: 500ms;
-        cursor: pointer;
         &:hover {
           border-bottom: 1px solid #ffffff;
         }
         &:hover .subtype-item {
-          color: #ffffff;
+          @apply text-white;
         }
         & .subtype-item {
-          display: block;
+          @apply block no-underline;
           padding: 1vw 0 0.4vw 0;
-          text-decoration: none;
           color: rgba(201,201,201,0.2);
           transition-duration: 500ms;
         }
