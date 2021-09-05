@@ -10,43 +10,63 @@
     <router-view class="router" />
 
     <!-- 漢堡btn -->
-    <img v-if="!menuVisible" class="ham-btn" src="@/assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
-    <img v-if="menuVisible" class="ham-btn" src="@/assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
+    <img v-if="!menuVisible" class="ham-btn" src="./assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
+    <img v-if="menuVisible" class="ham-btn" src="./assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
 
     <!-- 側邊欄選單 -->
     <div class="menu" v-show="menuVisible">
       <div class="menu-box">
-        <div class="type">
-          <router-link class="type-item" to="/">首頁</router-link>
-        </div>
-        <div class="type">
-          <router-link class="type-item" to="/">系列介紹</router-link>
-        </div>
-        <span>
-          <div class="subtype">
-            <router-link class="subtype-item" to="/">主題牌組</router-link>
+        <div v-for="(item, index) of menuList" :key="index">
+
+          <!--無子類別-->
+          <div v-if="!item.subtype" class="type">
+            <router-link class="type-item" :to="item.router">
+              {{ item.name }}
+            </router-link>
           </div>
-          <div class="subtype">
-            <router-link class="subtype-item" to="/">外掛系列</router-link>
+
+          <!--有子類別-->
+          <div v-else class="type" @click="showSubtype(index)">
+            <div class="type-item">
+              {{ item.name }}
+              <img class="arrow" :class="{ 'rotate': item.show }" src="./assets/images/arrow.png" alt="">
+            </div>
           </div>
-        </span>
+          <transition name="fade">
+            <div v-if="item.subtype && item.show" :class="{ 'rotate': item.show }">
+              <div class="subtype" v-for="(sub, subIndex) of item.subtype" :key="subIndex">
+                <router-link class="subtype-item" :to="sub.router">{{ sub.name }}</router-link>
+              </div>
+            </div>
+          </transition>
+
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { menuList } from './config/menu'
+
 export default {
-    data() {
-        return {
-            menuVisible: false
-        }
-    },
-    methods: {
-        showMenu(boolean) {
-          this.menuVisible = boolean
-        }
+  data() {
+    return {
+      menuList,
+      menuVisible: false
     }
+  },
+  mounted() {
+    console.log(this.menuList)
+  },
+  methods: {
+    showMenu(boolean) {
+      this.menuVisible = boolean
+    },
+    showSubtype(index) {
+      this.menuList[index].show = !this.menuList[index].show
+    }
+  }
 }
 </script>
 
@@ -59,6 +79,19 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+
+// fade 動畫 start
+.fade-leave, .fade-enter-to {
+  opacity: 1;
+}
+.fade-leave-active, .fade-enter-active {
+  transition: opacity 0.3s;
+}
+.fade-leave-to, .fade-enter {
+  opacity: 0;
+}
+// fade 動畫 end
+
 .is-open-ham {
   width: calc(100% - 14vw) !important;
 }
@@ -97,6 +130,7 @@ export default {
       height: 100vh;
       background-color: #1F2C5D;
       overflow-y: auto;
+      padding-bottom: 100px;
       & .type {
         @apply cursor-pointer;
         width: 80%;
@@ -110,6 +144,16 @@ export default {
         & .type-item {
           @apply block text-white no-underline;
           padding: 1.35vw 0 0.52vw 0;
+          & .arrow {
+            @apply inline-block float-right;
+            width: 1vw;
+            margin: 0.48vw 0.5vw 0 0;
+            transform: rotate(-90deg);
+            transition: .3s;
+          }
+          & .rotate {
+            transform: rotate(0deg);
+          }
         }
       }
       & .subtype {
