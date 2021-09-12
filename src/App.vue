@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="header-wrapper" :class="{'is-open-ham': menuVisible}">
+  <div id="app" class="header-wrapper">
 
     <!-- navbar -->
     <div class="nav">
@@ -10,8 +10,8 @@
     <router-view class="router" />
 
     <!-- 漢堡btn -->
-    <img v-if="!menuVisible" class="ham-btn" src="./assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
-    <img v-if="menuVisible" class="ham-btn" src="./assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
+    <img v-if="!menuVisible" class="open-ham-btn" src="./assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
+    <img v-if="menuVisible" class="close-ham-btn" src="./assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
 
     <!-- 側邊欄選單 -->
     <div class="menu" v-show="menuVisible">
@@ -92,9 +92,9 @@ export default {
 }
 // fade 動畫 end
 
-.is-open-ham {
-  width: calc(100% - 14vw) !important;
-}
+//.is-open-ham {
+//  width: calc(100% - 14vw) !important;
+//}
 .header-wrapper {
   @apply fixed w-full z-40;
   right: 0;
@@ -113,11 +113,17 @@ export default {
     }
   }
 
-  & .ham-btn {
+  & .open-ham-btn {
     @apply absolute cursor-pointer;
     left: 1vw;
-    top: 1.2vw;
-    width: 2vw;
+    top: 1.4vw;
+    width: 1.6vw;
+  }
+  & .close-ham-btn {
+    @apply absolute cursor-pointer;
+    left: 15vw;
+    top: 1.4vw;
+    width: 1.6vw;
   }
 
   & .menu {
