@@ -1,17 +1,17 @@
 <template>
     <div>
-        <!-- <Header /> -->
+        <Carousel />
         <Footer />
     </div>
 </template>
 
 <script>
-// import Header from '@/components/Header/index'
+import Carousel from '@/components/Carousel/index'
 import Footer from '@/components/Footer/index'
 
 export default {
     components: {
-        // Header,
+        Carousel,
         Footer
     }
 }
