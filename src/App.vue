@@ -12,11 +12,11 @@
     <router-view class="router" />
 
     <!-- 漢堡btn -->
-    <img v-if="!menuVisible" class="open-ham-btn" src="./assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
-    <img v-if="menuVisible" class="close-ham-btn" src="./assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
+    <img class="open-ham-btn" :class="{'fade-in': !menuVisible}" src="./assets/images/hamburger_open.png" alt="" @click="showMenu(true)">
+    <img class="close-ham-btn" :class="{'fade-in': menuVisible}" src="./assets/images/hamburger_close.png" alt="" @click="showMenu(false)">
 
     <!-- 側邊欄選單 -->
-    <div class="menu" v-show="menuVisible">
+    <div class="menu" :class="{'left-in': menuVisible}">
       <div class="menu-box">
         <div v-for="(item, index) of menuList" :key="index">
 
@@ -113,6 +113,9 @@ export default {
     }
   }
 
+  & .fade-in {
+    opacity: 1 !important;
+  }
   & .open-ham-btn {
     @apply fixed cursor-pointer z-10;
     left: 1.4vw;
@@ -124,12 +127,19 @@ export default {
     left: 15.4vw;
     top: 1.4vw;
     width: 1.6vw;
+    opacity: 0;
+    transition-duration: 500ms;
   }
 
+  & .left-in {
+    transform: translateX(0) !important;
+  }
   & .menu {
     @apply fixed z-50;
     left: 0;
     top: 0;
+    transform: translateX(-14vw);
+    transition-duration: 500ms;
     & .menu-box {
       @apply flex flex-col justify-items-start text-white;
       width: 14vw;
