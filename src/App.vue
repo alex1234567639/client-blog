@@ -3,8 +3,10 @@
 
     <!-- navbar -->
     <div class="nav">
-      <img class="icon" src="@/assets/images/icon.png" alt="">
-      <span class="name">Yu-Gi-Oh 部落格</span>
+      <div class="nav-content">
+        <img class="icon" src="@/assets/images/icon.png" alt="">
+        <span class="name">Yu-Gi-Oh 部落格</span>
+      </div>
     </div>
 
     <router-view class="router" />
@@ -92,36 +94,34 @@ export default {
 }
 // fade 動畫 end
 
-//.is-open-ham {
-//  width: calc(100% - 14vw) !important;
-//}
 .header-wrapper {
-  @apply fixed w-full z-40;
-  right: 0;
-  height: 4vw;
+  @apply w-full z-40;
   background-color: #2B2B2B;
 
   & .nav {
-    @apply flex justify-center items-center text-white;
-    height: 4vw;
-    & .icon {
+    @apply fixed top-0 left-0 w-full z-10 bg-black;
+    & .nav-content {
+      @apply flex justify-center items-center text-white;
+      height: 4vw;
+      & .icon {
         width: 5.4vw;
         margin-right: 0.88vw;
-    }
-    & .name {
+      }
+      & .name {
         font-size: 1.2vw;
+      }
     }
   }
 
   & .open-ham-btn {
-    @apply absolute cursor-pointer;
-    left: 1vw;
+    @apply fixed cursor-pointer z-10;
+    left: 1.4vw;
     top: 1.4vw;
     width: 1.6vw;
   }
   & .close-ham-btn {
-    @apply absolute cursor-pointer;
-    left: 15vw;
+    @apply fixed cursor-pointer z-10;
+    left: 15.4vw;
     top: 1.4vw;
     width: 1.6vw;
   }
