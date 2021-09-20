@@ -25,8 +25,8 @@ export default {
       srcIndex: 0,
       isClick: true,
       banner: [
-        { src: require('@/assets/images/banner_01.jpeg') },
-        { src: require('@/assets/images/banner_02.jpeg') }
+        { src: require('../../assets/images/banner_01.jpeg') },
+        { src: require('../../assets/images/banner_02.jpeg') }
       ],
     }
   },
@@ -62,7 +62,7 @@ export default {
 <style lang="scss" scoped>
 .carousel-wrapper {
   @apply relative w-full overflow-hidden;
-  height: 33vw;
+  height: 37vw;
 
   & .banner-container {
     @apply relative mx-auto my-0 object-center object-cover;
@@ -76,7 +76,7 @@ export default {
 
   & .slide-control {
     @apply absolute w-full text-center;
-    top: 30vw;
+    top: 34vw;
     & .control-btn {
       @apply inline-block cursor-pointer;
       width: 1.56vw;
