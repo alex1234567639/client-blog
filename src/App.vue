@@ -4,7 +4,7 @@
     <!-- navbar -->
     <div class="nav">
       <div class="nav-content">
-        <img class="icon" src="@/assets/images/icon.png" alt="">
+        <img class="icon" src="./assets/images/icon.png" alt="">
         <span class="name">Yu-Gi-Oh 部落格</span>
       </div>
     </div>
