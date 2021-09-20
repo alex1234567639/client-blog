@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <div class="series-introduction">
-      <div class="title">系列介紹</div>
-      <div class="article-box">
-        <div class="card" v-for="item of articleList" :key="item.id">
-          <div class="card-top">
-            <img :src="item.photo" alt="">
-          </div>
-          <div class="card-bottom">
-            <span class="title">{{ item.title }}</span>
-            <div class="info">
-              <span class="author">作者：{{ item.author_name }}</span>
-              <span class="date">日期：{{ item.publish_date }}</span>
-            </div>
+  <div class="series-introduction">
+    <div class="title">系列介紹</div>
+    <div class="article-box">
+      <div class="card" v-for="item of articleList" :key="item.id">
+        <div class="card-top">
+          <img :src="item.photo" alt="">
+        </div>
+        <div class="card-bottom">
+          <span class="title">{{ item.title }}</span>
+          <div class="info">
+            <span class="author">作者：{{ item.author_name }}</span>
+            <span class="date">日期：{{ item.publish_date }}</span>
           </div>
         </div>
       </div>
-      <div class="more">
-        <span>更多文章 >></span>
-      </div>
+    </div>
+    <div class="more">
+      <span>更多文章 >></span>
     </div>
   </div>
 </template>
