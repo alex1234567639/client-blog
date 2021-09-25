@@ -1,0 +1,10 @@
+// btn
+@mixin btn($font-size: 1.25vw, $color: #000000, $bg-color: #ffffff) {
+  font-size: $font-size;
+  color: $color;
+  border: 1px solid $color;
+  background-color: $bg-color;
+  border-radius: 5px;
+  padding: 3px 8px;
+  display: inline-block;
+}
