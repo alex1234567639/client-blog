@@ -4,6 +4,8 @@
     <MetaDeck />
     <SeriesIntroduction />
     <ProductionInformation />
+    <div class="btn1">測試按鈕1</div>
+    <div class="btn2">測試按鈕2</div>
     <Footer />
   </div>
 </template>
@@ -27,7 +29,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/css/mixin';
+
 .home-page-wrapper {
   background-color: #2B2B2B;
+}
+.btn1 {
+  @include btn;
+}
+.btn2 {
+  @include btn(2vw, #ffffff, gray);
 }
 </style>
