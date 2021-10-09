@@ -1,8 +1,8 @@
 <template>
-  <div class="production-information">
-    <div class="title">卡表資料</div>
+  <div class="meta-deck">
+    <div class="title">{{ articleInfo.title }}</div>
     <div class="article-box">
-      <div class="card" v-for="item of articleList" :key="item.id">
+      <div class="card" v-for="item of articleInfo.articleList" :key="item.id">
         <div class="card-top">
           <img :src="item.photo" alt="">
         </div>
@@ -16,46 +16,25 @@
       </div>
     </div>
     <div class="more">
-      <span>更多文章 >></span>
+      <router-link :to="articleInfo.link" class="more-btn">更多文章 >></router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      articleList: [
-        {
-          id: 1001,
-          author_name: '台北閃刀王',
-          title: '[基礎介紹] 閃刀姬牌組介紹 (閃刀/閃刀姫/Sky Striker) 稱霸賽場連續兩年的傳奇',
-          photo: require('../../assets/images/card_cover_01.jpg'),
-          publish_date: '2021/09/09'
-        },
-        {
-          id: 1002,
-          author_name: '台北閃刀王',
-          title: '[基礎介紹] 閃刀姬牌組介紹 (閃刀/閃刀姫/Sky Striker)',
-          photo: require('../../assets/images/card_cover_02.jpg'),
-          publish_date: '2021/09/09'
-        },
-        {
-          id: 1003,
-          author_name: '台北閃刀王',
-          title: '[基礎介紹] 閃刀姬牌組介紹 (閃刀/閃刀姫/Sky Striker)',
-          photo: require('../../assets/images/card_cover_01.jpg'),
-          publish_date: '2021/09/09'
-        }
-      ]
+  props: {
+    articleInfo: {
+      type: Object,
+      required: true
     }
-  },
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.production-information {
-  padding: 1.67vw 0 5vw;
+.meta-deck {
+  padding: 1.67vw 0;
 
   & .title {
     @apply text-white;
@@ -113,7 +92,7 @@ export default {
     @apply text-right;
     width: 70vw;
     margin: 1vw auto 0;
-    & span {
+    & .more-btn {
       @apply text-white cursor-pointer;
       padding: 0.5vw;
       font-size: 0.95vw;

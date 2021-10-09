@@ -12,7 +12,13 @@ const routes = [
   {
     path: '*',
     redirect: '/',
-  }
+  },
+  // 上位卡表
+  {
+    path: '/metaDeck',
+    name: 'metaDeck',
+    component: () => import('../views/MetaDeck/articleList'),
+  },
 ]
 
 const router = new VueRouter({

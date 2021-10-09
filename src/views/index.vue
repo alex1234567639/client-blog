@@ -12,9 +12,9 @@
 
 <script>
 import Carousel from '../components/Carousel/index'
-import MetaDeck from '../components/MetaDeck/homePage'
-import SeriesIntroduction from '../components/SeriesIntroduction/homePage'
-import ProductionInformation from '../components/ProductInformation/homePage'
+import MetaDeck from './MetaDeck/home'
+import SeriesIntroduction from './SeriesIntroduction/home'
+import ProductionInformation from './ProductInformation/home'
 import Footer from '../components/Footer/index'
 
 export default {
