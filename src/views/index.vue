@@ -4,7 +4,7 @@
     <MetaDeck />
     <SeriesIntroduction />
     <ProductionInformation />
-    <div class="btn1">測試按鈕1</div>
+    <div class="btn1" @click="testPopUp">測試按鈕1</div>
     <div class="btn2">測試按鈕2</div>
     <Footer />
   </div>
@@ -24,6 +24,11 @@ export default {
     SeriesIntroduction,
     ProductionInformation,
     Footer
+  },
+  methods: {
+    testPopUp() {
+      this.$popup('測試按鈕1', 'msg')
+    }
   }
 }
 </script>
